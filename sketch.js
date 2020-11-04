@@ -1,3 +1,24 @@
+var myname = "Avani"
+console.log(myname)
+
+var myclass = 7
+console.log(myclass)
+
+
+
+var said = true
+console.log(said)
+
+var myteacher
+myteacher = null
+console.log(myteacher)
+
+
+var list =[['Avani','Salini'],[7,10], [1,50]]
+
+list.push("Dilna")
+console.log(list)
+
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -7,6 +28,7 @@ var engine, world;
 var box1, pig1,pig3;
 var backgroundImg,platform;
 var bird, slingshot;
+var gameState = "on sling "
 
 
 function preload() {
@@ -69,12 +91,17 @@ function draw(){
 }
 
 function mouseDragged(){
-    Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+   
+    if(gameState!="lauched"){
+       Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY}); 
+    }
+
 }
 
 
 function mouseReleased(){
     slingshot.fly();
+    gameState = "lauched";
 }
 
 function keyPressed(){
